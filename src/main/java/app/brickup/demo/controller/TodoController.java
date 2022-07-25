@@ -20,7 +20,7 @@ import app.brickup.demo.repository.TodoRepository;
 
 @RestController
 @RequestMapping("/todos")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://redux-todo-delta.vercel.app/")
 public class TodoController {
     
     private TodoRepository repository;
@@ -30,7 +30,7 @@ public class TodoController {
     }
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://redux-todo-delta.vercel.app/")
     public List<Todo> findAll(){
         return repository.findAll();
     }
@@ -41,13 +41,13 @@ public class TodoController {
            .orElse(ResponseEntity.notFound().build());
     }
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://redux-todo-delta.vercel.app/")
     public Todo create(@Validated @Valid @RequestBody Todo todo){
     return repository.save(todo);
     }
 
     @PutMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://redux-todo-delta.vercel.app/")
     public ResponseEntity<Todo> update(@PathVariable(value = "id") long id,
     @RequestBody Todo todo) {
     return repository.findById(id)
@@ -61,7 +61,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://redux-todo-delta.vercel.app/")
     public ResponseEntity<?> delete(@PathVariable(value = "id") long id) {
     return repository.findById(id)
             .map(data -> {
